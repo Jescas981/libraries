@@ -1,2 +1,8 @@
 **/build
+<<<<<<< HEAD
 **/.vscode
+=======
+**/.vscode
+**/out
+**/.vs
+>>>>>>> 0f2bc86 (Add MSC support)
