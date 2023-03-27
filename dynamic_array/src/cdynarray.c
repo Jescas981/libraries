@@ -26,12 +26,6 @@ dynarray_data* _dynarray_realloc(dynarray_data* arr_data, size_t capacity,
   size_t length = arr_data->length;
   dynarray_data* new_data =
       realloc(arr_data, sizeof(dynarray_data) + capacity * size_type);
-<<<<<<< HEAD
-=======
-  if (new_data == NULL) {
-    return NULL;
-  }
->>>>>>> 0f2bc86 (Add MSC support)
   new_data->capacity = capacity;
   new_data->length = length;
   return new_data;
@@ -39,17 +33,10 @@ dynarray_data* _dynarray_realloc(dynarray_data* arr_data, size_t capacity,
 
 dynarray dynarray_create(void) {
   dynarray_data* arr_data = (dynarray_data*)malloc(sizeof(dynarray_data));
-<<<<<<< HEAD
-  return &arr_data->data;
-}
-
-dynarray dynarray_free(dynarray arr) {
-=======
   arr_data->length = 0;
   arr_data->capacity = 0;
   return &arr_data->data;
 }
-
 size_t dynarray_length(dynarray arr) { return _dynarray_get_data(arr)->length; }
 
 size_t dynarray_capacity(dynarray arr) {
@@ -57,16 +44,11 @@ size_t dynarray_capacity(dynarray arr) {
 }
 
 void dynarray_free(dynarray arr) {
->>>>>>> 0f2bc86 (Add MSC support)
   dynarray_data* arr_data = _dynarray_get_data(arr);
   free(arr_data);
 }
 
-<<<<<<< HEAD
-bool _dynarray_is_full(const dynarray const arr) {
-=======
 static inline bool _dynarray_is_full(const dynarray const arr) {
->>>>>>> 0f2bc86 (Add MSC support)
   dynarray_data* arr_data = _dynarray_get_data(arr);
   return arr_data->length >= arr_data->capacity;
 }
@@ -77,10 +59,7 @@ dynarray _dynarray_add(dynarray* arr, size_t size_type) {
     size_t new_capacity =
         (arr_data->capacity == 0 ? 1 : arr_data->capacity) * DYNARRAY_GROW;
     arr_data = _dynarray_realloc(arr_data, new_capacity, size_type);
-<<<<<<< HEAD
-=======
     *arr = arr_data->data;
->>>>>>> 0f2bc86 (Add MSC support)
   }
   return (void*)&arr_data->data[size_type * arr_data->length++];
 }
